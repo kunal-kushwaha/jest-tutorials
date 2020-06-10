@@ -1,0 +1,13 @@
+Test file name should be filename.test.js // jest will pick up automatically
+Test Suites : test files
+
+CHECK FOR TRUTHY & FALSY VALUES
+toBeNull matches only null
+toBeUndefined matches only undefined
+toBeDefined is the opposite of toBeUndefined
+toBeTruthy matches anything that an if statement treats as true
+toBeFalsy matches anything that an if statement treats as false
+
+toBe is for primitive types, string to be a string etc
+to check object, they might be saved in different memory so toBe wont work
+for object use toEqual
