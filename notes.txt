@@ -11,3 +11,10 @@ toBeFalsy matches anything that an if statement treats as false
 toBe is for primitive types, string to be a string etc
 to check object, they might be saved in different memory so toBe wont work
 for object use toEqual
+
+If you want to run something before/after your tests
+you can use lifecycle methods
+
+you can have your tests run as you are developing
+Add "testwatch":"jest --watchAll" in package.json
+$ npm run testwatch

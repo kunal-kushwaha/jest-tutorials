@@ -1,5 +1,35 @@
 const functions = require('./functions')
 
+// If you want to run something before/after your tests
+// you can use lifecycle methods
+
+// will run before and after each test
+// beforeEach(() => initDatabase());
+// afterEach(() => closeDatabase());
+
+// will run after all the tests have run
+// beforeAll(() => initDatabase());
+// afterAll(() => closeDatabase());
+
+// const initDatabase = () => console.log('Database Initialized...');
+// const closeDatabase = () => console.log('Database Closed...');
+
+// you can also target certain tests if you want to run something 
+// just for certain ones, hence here it will run the nameCheck
+// only for the two tests in describe
+const nameCheck = () => console.log('Checking Name....');
+describe('Checking Names', () => {
+    beforeEach(() => nameCheck());  
+    test('User is Kunal', () => {
+        const user = 'Kunal'
+        expect(user).toBe('Kunal')
+    })
+    test('User is Rahul', () => {
+        const user = 'Rahul'
+        expect(user).toBe('Rahul')
+    })
+})
+
 test('Adds 2 + 2 to equal 4', () => {
     // in expect add the function you want to test
     // doesnt have to be a function, can pass anything
@@ -48,18 +78,18 @@ test('Admin should be in usernames', () => {
 // working with async data
 
 // promise
-test('User fetched name should be Leanne Graham', () => {
-    // add this when using async data
-    // this will verify that certain number of assertions are called
-    // to make sure that the assertions in callback actually get called
-    expect.assertions(1);
+// test('User fetched name should be Leanne Graham', () => {
+//     // add this when using async data
+//     // this will verify that certain number of assertions are called
+//     // to make sure that the assertions in callback actually get called
+//     expect.assertions(1);
 
-    // return the promise else test will complete before the fetch completes
-    return functions.fetchUser()
-    .then(data => {
-        expect(data.name).toEqual('Leanne Graham')
-    })
-})
+//     // return the promise else test will complete before the fetch completes
+//     return functions.fetchUser()
+//     .then(data => {
+//         expect(data.name).toEqual('Leanne Graham')
+//     })
+// })
 
 // async await
 test('User fetched name should be Leanne Graham', async () => {
